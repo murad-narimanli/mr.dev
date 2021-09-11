@@ -1,15 +1,20 @@
-import React from 'react';
-import blogIMg from '../../../images/blog/blog_post_1.jpg'
+import React, {useEffect} from 'react';
 import PageLayout from "../../Layout/PageLayout";
-import {Link} from "react-router-dom";
 import BlogItem from "../../Elements/BlogItem";
+import {useDispatch, useSelector} from "react-redux";
+import {getBlogs} from "../../../redux/actions";
+import {url} from "../../../const/const";
+import moment from "moment";
 function Blog(props) {
-    let blogs = [
-        {},
-        {},
-        {},
-        {},
-    ]
+
+    const blogs = useSelector(s => s.blogs)
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        !blogs.length && dispatch(getBlogs())
+    },[])
+
+
     return (
         <PageLayout title={'Blog'} description={'My Diary'}>
             <div className="row">
@@ -17,10 +22,10 @@ function Blog(props) {
                     <div className="blog-masonry two-columns clearfix">
                         {blogs.map((b ,i)=>(
                             <BlogItem key={i}
-                              src={blogIMg}
-                              id={3}
-                              date={'12/12/2021'}
-                              title={'Designing the Perfect Feature Comparison Table'}
+                              src={url + b.cover.url}
+                              id={b.id}
+                              date={moment(b.published_at).format('DD/MM/YYYY')}
+                              title={b.description}
                             />
                         ))}
                     </div>

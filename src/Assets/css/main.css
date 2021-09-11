@@ -1523,7 +1523,10 @@ blockquote {
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
+    transition: all .3s ease-in-out;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
 }
 
 .blog-card .media-block:hover img {
@@ -1572,7 +1575,8 @@ blockquote {
 }
 
 .blog-card .media-block {
-    position: relative
+    position: relative;
+    height:300px;
 }
 
 .sticky-badge {

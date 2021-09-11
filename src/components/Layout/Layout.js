@@ -15,11 +15,12 @@ function Layout(props) {
     }
     return (
         <>
-            <Loader show={load}/>
-            <div className="page" id="page">
+            <Loader absolute={false} show={load}/>
+            <div className="page position-relative" id="page">
                 <Sidebar/>
                 <Header/>
                 <div className="site-main" id="main">
+                    {/*<Loader absolute={true} show={load}/>*/}
                     <div className="pt-wrapper">
                         <div className="subpages animated fadeIn">
                             {props.children}

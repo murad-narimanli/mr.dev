@@ -1,16 +1,13 @@
 import axios from "axios";
-import siteUrl from "./url";
+import {url} from "./const";
 
 export const profile = axios.create({
-    baseURL: `${siteUrl}api`,
+    baseURL: `${url}/`,
     headers: { "Content-Type": "application/json" },
 });
 
 profile.interceptors.request.use(
     (config) => {
-        config.headers["accept-language"] = localStorage.getItem("locale")
-            ? localStorage.getItem("locale")
-            : "az";
         return config;
     },
     (error) => {

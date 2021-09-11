@@ -1,5 +1,5 @@
 export const name = "Murad Narimanli";
-
+export const url = 'https://mighty-retreat-11869.herokuapp.com'
 export const links = [
     {
         name:'Home',
