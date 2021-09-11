@@ -55,6 +55,18 @@ export function portfolioReducer(portfolios= [], action) {
     }
 }
 
+export function doingReducer(doings= [], action) {
+    switch (action.type) {
+        case types.GET_DOINGS:
+            return action.payload;
+        case types.GET_DOINGS_ERROR:
+            return action.payload.message;
+        default:
+            return doings;
+    }
+}
+
+
 
 export function blogReducer(blogs= [], action) {
     switch (action.type) {

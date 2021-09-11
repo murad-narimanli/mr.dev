@@ -2,12 +2,14 @@ import React, {useEffect} from 'react';
 import PageLayout from "../../Layout/PageLayout";
 import Box from '../../Elements/Box';
 import {useDispatch, useSelector} from "react-redux";
-import {getAbout} from "../../../redux/actions";
+import {getAbout, getDoings} from "../../../redux/actions";
 
 function About(props) {
     const dispatch = useDispatch()
     const about = useSelector(s => s.about)
+    const doings = useSelector(s => s.doings)
     useEffect(()=>{
+        !doings.length && dispatch(getDoings())
         Object.keys(about).length === 0 && dispatch(getAbout())
     },[])
 
@@ -59,32 +61,26 @@ function About(props) {
                         <div className="block-title"><h3>What I Do</h3></div>
                     </div>
                 </div>
-                <div className="col-xs-12 col-sm-6">
-                    <div className="col-inner">
-                        <div className="info-list-w-icon">
-                            <div className="info-block-w-icon">
-                                <div className="ci-icon"><i className="lnr lnr-store"></i></div>
-                                <div className="ci-text"><h4>Ecommerce</h4>
-                                    <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio
-                                        tortor bibendum massa, sit amet ultricies ex lectus scelerisque
-                                        nibh. Ut non sodales odio.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xs-12 col-sm-6">
-                    <div className="col-inner">
-                        <div className="info-list-w-icon">
-                            <div className="info-block-w-icon">
-                                <div className="ci-icon"><i className="lnr lnr-flag"></i></div>
-                                <div className="ci-text"><h4>Management</h4>
-                                    <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio
-                                        tortor bibendum massa, sit amet ultricies ex lectus scelerisque
-                                        nibh. Ut non sodales odio.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {
+                    doings.length > 0 &&
+                        <>
+                            {doings.map((l , i)=>(
+                                <div key={i} className="col-xs-12 col-sm-6">
+                                    <div className="col-inner">
+                                        <div className="info-list-w-icon">
+                                            <div className="info-block-w-icon">
+                                                <div className="ci-text">
+                                                    <h4>{l.title}</h4>
+                                                    <p>{l.description}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </>
+                }
+
             </div>
             <div className="row">
                 <div className="col-xs-12 col-sm-12">

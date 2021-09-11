@@ -108,6 +108,22 @@ export const getSkills = () => async (dispatch) => {
             });
         });
 };
+export const getDoings = () => async (dispatch) => {
+    profile
+        .get("doings")
+        .then((res) => {
+            dispatch({
+                type: types.GET_DOINGS,
+                payload: res.data
+            });
+        })
+        .catch((err) => {
+            dispatch({
+                type: types.GET_DOINGS_ERROR,
+                payload: { message: "Xəta baş verdi" },
+            });
+        });
+};
 
 export const getCategories = () => async (dispatch) => {
     profile

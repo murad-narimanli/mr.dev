@@ -5,7 +5,7 @@ import {combineReducers} from "redux";
 import {
   aboutReducer,
   blogReducer,
-  categoryReducer,
+  categoryReducer, doingReducer,
   educationReducer, experienceReducer,
   portfolioReducer, skillReducer,
   toggleReducer
@@ -21,6 +21,7 @@ const rootReducer = combineReducers({
   educations:educationReducer,
   experiences:experienceReducer,
   skills:skillReducer,
+  doings:doingReducer
 });
 
 const store = createStore(
