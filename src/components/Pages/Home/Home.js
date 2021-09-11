@@ -1,5 +1,5 @@
 import React from 'react';
-import {name} from "../../../const/name"
+import {name} from "../../../const/const"
 import Typical from 'react-typical'
 function Home(props) {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import {name} from "../../const/name";
+import {name} from "../../const/const";
 
 function BlogLayout({img , title , date , children}) {
     return (

@@ -2,11 +2,11 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {combineReducers} from "redux";
-import {numberReducer} from "./reducers";
+import {toggleReducer} from "./reducers";
 
 
 const rootReducer = combineReducers({
-  number: numberReducer,
+  toggle: toggleReducer,
 });
 
 const store = createStore(

@@ -1,10 +1,7 @@
 import types from "./../types";
-import profile from "../../const/api";
 
-
-export const setNumber = (number) => {
+export const toggleMenu = () => {
     return {
-        type: types.SET_NUMBER,
-        payload: number
+        type: types.TOGGLE
     }
 }
