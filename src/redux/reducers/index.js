@@ -25,7 +25,7 @@ export function experienceReducer(experiences= [], action) {
         case types.GET_EXPERİENCE:
             return action.payload;
         case types.GET_EXPERİENCE_ERROR:
-            return action.payload.message;
+            return experiences;
         default:
             return experiences;
     }
@@ -37,7 +37,7 @@ export function educationReducer(educations= [], action) {
         case types.GET_EDUCATION:
             return action.payload;
         case types.GET_EDUCATION_ERROR:
-            return action.payload.message;
+            return educations;
         default:
             return educations;
     }
@@ -49,7 +49,7 @@ export function portfolioReducer(portfolios= [], action) {
         case types.GET_PORTFOLIOS:
             return action.payload;
         case types.GET_PORTFOLIOS_ERROR:
-            return action.payload.message;
+            return portfolios;
         default:
             return portfolios;
     }
@@ -60,7 +60,7 @@ export function doingReducer(doings= [], action) {
         case types.GET_DOINGS:
             return action.payload;
         case types.GET_DOINGS_ERROR:
-            return action.payload.message;
+            return doings;
         default:
             return doings;
     }
@@ -73,7 +73,7 @@ export function blogReducer(blogs= [], action) {
         case types.GET_BLOGS:
             return action.payload;
         case types.GET_BLOGS_ERROR:
-            return action.payload.message;
+            return blogs;
         default:
             return blogs;
     }
@@ -84,7 +84,7 @@ export function categoryReducer(blogs= [], action) {
         case types.GET_CATEGORIES:
             return action.payload;
         case types.GET_CATEGORIES_ERROR:
-            return action.payload.message;
+            return blogs;
         default:
             return blogs;
     }
@@ -97,7 +97,7 @@ export function skillReducer(skills= [], action) {
         case types.GET_SKILLS:
             return action.payload;
         case types.GET_SKILLS_ERROR:
-            return action.payload.message;
+            return skills;
         default:
             return skills;
     }
